@@ -1,0 +1,28 @@
+{ "name": "usblp-gpio-python",
+  "version": "0.0.1",
+  "description": "My attempt at GPIO via usblp.",
+  "keywords": [
+    "gpio",
+    "usblp"
+  ],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/usblp-gpio-python/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/usblp-gpio-python.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/usblp-gpio-python/issues"
+  },
+  "contributors": [],
+
+  "private": false, "license": "ISC",
+
+  "directories": { "test": "test" },
+
+  "engines": { "python": "3" },
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
