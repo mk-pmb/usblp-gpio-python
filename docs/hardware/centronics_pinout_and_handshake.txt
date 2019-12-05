@@ -1,0 +1,28 @@
+﻿
+Centronics Plug Pinout               #  Centronics Handshake
+======================               #  ====================
+                                     #
+                .'‾\                 #     Step 0  1  2  3   4      5      0
+              .'    |                #     Data xx $$ $$ $$x xxxxxx xxxxxx xx
+  Signal GND |19   1| nStrobe        #  nStrobe ‾‾ ‾\ __ /‾‾ ‾‾‾‾‾‾ ‾‾‾‾‾‾ ‾‾
+  Signal GND |20   2| Data Bit 0     #     Busy __ __ /‾ ‾‾‾ ‾‾‾‾‾\ ______ __
+           … |…    …| …              #     nAck ‾‾ ‾‾ ‾‾ ‾‾‾ ‾‾‾‾‾‾ ‾\__/‾ ‾‾
+           … |…    9| Data Bit 7     #
+           … |…   10| nAck           #  Steps:
+           … |…   11| Busy           #  0.  Idle state.
+  Signal GND |30  12| Paper Error    #  1a. Host sets data.
+      nReset |31  13| Select         #  1b. Host sets strobe.
+       Error |32  14| nLinefeed      #  2.  Printer sets busy.
+  Signal GND |33  15| ExternalOscil  #  3a. Host unsets strobe.
+ (LineCount) |34  16| Signal GND     #  3b. Host may release data.
+  (LnCntRet) |35  17| Chassis GND    #      => Data bits are now unreliable!
+   nSelectIn |36  18| Printer +5V    #  4.  Later, printer unsets busy.
+              '.    |                #  5a. Printer sets ack.
+                '._/                 #  5b. Printer unsets ack.
+                                     #
+  Entire border: also Chassis GND    #
+                 (hence the name)    #
+
+
+
+Source (see there for license): https://github.com/mk-pmb/usblp-gpio-python

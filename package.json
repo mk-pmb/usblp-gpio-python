@@ -1,6 +1,6 @@
 { "name": "usblp-gpio-python",
   "version": "0.0.1",
-  "description": "My attempt at GPIO via usblp.",
+  "description": "My attempt at GPIO (general purpose input/output) via usblp.",
   "keywords": [
     "gpio",
     "usblp"
