@@ -14,6 +14,8 @@ CH341, CH341A
 * [ch341prog](https://github.com/setarcos/ch341prog)
   is an extended version of `ch341eepromtool`.
 
+* [Detailed description and tools links on ZooBaB][zoobab-ch341]
+
 * [ch341a-bitbang-userland](https://github.com/sarim/ch341a-bitbang-userland)
   aims to provide some libusb examples, including
   "A simple gpio led blink example".
@@ -28,3 +30,4 @@ CH341, CH341A
 
   [wp-en-spi]: https://en.wikipedia.org/wiki/Serial_Peripheral_Interface
   [wp-en-i2s]: https://en.wikipedia.org/wiki/I%C2%B2C
+  [zoobab-ch341]: http://www.zoobab.com/ch341-usb-spi-i2c-uart-isp-dongle
