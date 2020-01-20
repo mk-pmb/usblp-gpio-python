@@ -3,6 +3,7 @@
 
 import sys
 import idvp_autohex
+import sysfs_usb
 
 
 repl_input_stack = sys.argv[1:]
@@ -104,19 +105,13 @@ def cmd_var():
     cli_vars[key] = val
 
 
-def cmd_find_usblp_vpid():
-    uev = '/sys/class/usbmisc/lp{0}/device/uevent'.format(repl_vars['lp'])
-    with open(uev, 'r') as fh:
-        uev = dict([ln.strip().split('=') for ln in fh.readlines()])
-    vp = uev['PRODUCT'].split('/')[0:2]
-    vp = '{:>4s}:{:>4s}'.format(*vp).replace(' ', '0')
-    return vp
-
-
 def cmd_find_usbdev():
     v = repl_read()
     if v == 'lp':
-        v = cmd_find_usblp_vpid()
+        v = '/sys/class/usbmisc/lp{0}/device/uevent'.format(repl_vars['lp'])
+    if v.startswith('/uevent'):
+        # see docs/sysfs/uevent.md
+        v = sysfs_usb.uevent_read_dict(v)
     p = v.split(':')
     if len(p) == 2:
         (v, p) = p
