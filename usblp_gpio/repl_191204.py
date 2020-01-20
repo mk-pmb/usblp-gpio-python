@@ -109,9 +109,15 @@ def cmd_find_usbdev():
     v = repl_read()
     if v == 'lp':
         v = '/sys/class/usbmisc/lp{0}/device/uevent'.format(repl_vars['lp'])
-    if v.startswith('/uevent'):
-        # see docs/sysfs/uevent.md
-        v = sysfs_usb.uevent_read_dict(v)
+
+    if v.endswith('/uevent'):
+        # See docs/sysfs/uevent.md.
+        # Using this method you can specify an exact device even if you
+        # have multiple usblps with same idVendor and idProduct.
+        dev = sysfs_usb.uevent_find_usbdev(v)
+        repl_vars['usbdev'] = dev
+        return dev
+
     p = v.split(':')
     if len(p) == 2:
         (v, p) = p
