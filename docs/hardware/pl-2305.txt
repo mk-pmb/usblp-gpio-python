@@ -1,0 +1,8 @@
+﻿
+* Vendor-specific device control requests: See hints from "Daniel"
+  [on February 22, 2018 at 2:24 am][hackaday-ch341-c4373111] and
+  [on February 24, 2018 at 5:54 am][hackaday-ch341-c4376640].
+  * Note to self: The non-public usblp tutorials have a summary and
+    vendor request table in `PL-2305 DevCtrl Daniel 180222.txt`,
+    committed 2020-07-27.
+
